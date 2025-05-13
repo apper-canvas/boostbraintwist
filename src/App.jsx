@@ -94,6 +94,16 @@ function App() {
                   : '/login'
             );
           } else if (redirectPath) {
+           if (
+              ![
+                  'forgot-password',
+                  'reset-password',
+                  'error',
+                  'signup',
+                  'login',
+                  'callback'
+              ].some((path) => currentPath.includes(path))
+          )
             navigate(`/login?redirect=${redirectPath}`);
           } else if (isAuthPage) {
             navigate(currentPath);
