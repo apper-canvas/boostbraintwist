@@ -65,7 +65,6 @@ function App() {
         // DO NOT simplify or modify this pattern as it ensures proper redirection flow
         let currentPath = window.location.pathname + window.location.search;
         let redirectPath = new URLSearchParams(window.location.search).get('redirect');
-        debugger;
       const isAuthPage = currentPath.includes('/login') || currentPath.includes('/signup') || currentPath.includes(
       '/callback') || currentPath.includes('/error');
         if (user) {
