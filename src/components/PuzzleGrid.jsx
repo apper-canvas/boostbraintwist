@@ -7,15 +7,15 @@ const PuzzleGrid = ({ puzzles, userProgress, isLoading }) => {
   const [filterCategory, setFilterCategory] = useState('all');
   
   // Get category icons
-  const GridIcon = getIcon('Grid');
+  const GridIcon = getIcon('LayoutGrid');
   const ScrollTextIcon = getIcon('ScrollText');
   const CalculatorIcon = getIcon('Calculator');
   const LightbulbIcon = getIcon('Lightbulb');
   
   // Category configuration
   const categories = [
-    { id: 'all', name: 'All Puzzles', icon: getIcon('LayoutGrid') },
-    { id: 'pattern', name: 'Pattern', icon: GridIcon },
+    { id: 'all', name: 'All Puzzles', icon: GridIcon },
+    { id: 'pattern', name: 'Pattern', icon: getIcon('Grid3x3') },
     { id: 'word', name: 'Word', icon: ScrollTextIcon },
     { id: 'math', name: 'Math', icon: CalculatorIcon },
     { id: 'logic', name: 'Logic', icon: LightbulbIcon }
@@ -81,7 +81,7 @@ const PuzzleGrid = ({ puzzles, userProgress, isLoading }) => {
             <PuzzleCard 
               key={puzzle.Id} 
               puzzle={puzzle} 
-              progress={userProgress?.find(p => p.puzzle_id === puzzle.Id)}
+              progress={userProgress && userProgress.find ? userProgress.find(p => p.puzzle_id === puzzle.Id) : null}
             />
           ))}
         </motion.div>
