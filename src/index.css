@@ -4,76 +4,107 @@
 
 @layer base {
   body {
-    @apply antialiased text-surface-800 dark:text-surface-100 bg-surface-50 dark:bg-surface-900 transition-colors duration-300;
+    @apply text-surface-800 dark:text-surface-200;
   }
-  
+
   h1, h2, h3, h4, h5, h6 {
-    @apply font-heading font-semibold;
-  }
-  
-  h1 {
-    @apply text-3xl sm:text-4xl md:text-5xl;
-  }
-  
-  h2 {
-    @apply text-2xl sm:text-3xl md:text-4xl;
-  }
-  
-  h3 {
-    @apply text-xl sm:text-2xl md:text-3xl;
+    @apply font-heading;
   }
 }
 
 @layer components {
   .btn {
-    @apply px-4 py-2 rounded-lg font-medium transition-all duration-200 transform active:scale-95;
+    @apply px-4 py-2 rounded-lg font-medium transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed;
   }
-  
+
   .btn-primary {
-    @apply bg-primary text-white hover:bg-primary-dark shadow-sm;
+    @apply bg-primary text-white hover:bg-primary-dark focus:ring-primary;
   }
-  
+
   .btn-secondary {
-    @apply bg-secondary text-white hover:bg-secondary-dark shadow-sm;
-  }
-  
-  .btn-accent {
-    @apply bg-accent text-white hover:bg-accent shadow-sm;
+    @apply bg-secondary text-white hover:bg-secondary-dark focus:ring-secondary;
   }
   
   .btn-outline {
-    @apply border border-surface-300 dark:border-surface-600 hover:bg-surface-100 dark:hover:bg-surface-800;
+    @apply border border-surface-300 dark:border-surface-700 bg-transparent hover:bg-surface-100 dark:hover:bg-surface-800 focus:ring-surface-400;
   }
-  
-  .card {
-    @apply rounded-xl bg-white dark:bg-surface-800 shadow-card p-6;
-  }
-  
+
   .card-neu {
-    @apply rounded-xl bg-surface-100 dark:bg-surface-800 shadow-neu-light dark:shadow-neu-dark p-6;
+    @apply p-6 rounded-xl bg-white dark:bg-surface-800 shadow-card dark:shadow-neu-dark transition-all duration-300;
   }
-  
-  .input {
+
+  .form-control {
+    @apply w-full mb-4;
+  }
+
+  .form-label {
+    @apply block mb-2 text-sm font-medium text-surface-700 dark:text-surface-300;
+  }
+
+  .form-input {
     @apply w-full px-4 py-2 rounded-lg border border-surface-300 dark:border-surface-700 
-    bg-white dark:bg-surface-800 focus:outline-none focus:ring-2 focus:ring-primary;
+    bg-white dark:bg-surface-800 text-surface-900 dark:text-surface-100
+    focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary;
   }
-}
 
-@layer utilities {
-  .scrollbar-hide {
-    -ms-overflow-style: none;
-    scrollbar-width: none;
+  .form-select {
+    @apply form-input appearance-none bg-no-repeat bg-right pr-10;
   }
-  .scrollbar-hide::-webkit-scrollbar {
-    display: none;
+
+  .form-checkbox {
+    @apply w-4 h-4 text-primary bg-surface-100 dark:bg-surface-800 border-surface-300 
+    dark:border-surface-700 rounded focus:ring-primary focus:ring-2;
+  }
+
+  .form-error {
+    @apply text-red-500 text-sm mt-1;
+  }
+
+  .badge {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium;
+  }
+
+  .badge-primary {
+    @apply bg-primary-light text-primary-dark dark:bg-primary/20 dark:text-primary-light;
+  }
+
+  .badge-secondary {
+    @apply bg-secondary-light text-secondary-dark dark:bg-secondary/20 dark:text-secondary-light;
+  }
+
+  .badge-success {
+    @apply bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-400;
+  }
+
+  .badge-warning {
+    @apply bg-yellow-100 text-yellow-800 dark:bg-yellow-900/30 dark:text-yellow-400;
+  }
+
+  .badge-error {
+    @apply bg-red-100 text-red-800 dark:bg-red-900/30 dark:text-red-400;
+  }
+
+  .badge-neutral {
+    @apply bg-surface-100 text-surface-800 dark:bg-surface-700 dark:text-surface-200;
+  }
+
+  .difficulty-easy {
+    @apply badge bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-400;
+  }
+
+  .difficulty-medium {
+    @apply badge bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-400;
+  }
+
+  .difficulty-hard {
+    @apply badge bg-orange-100 text-orange-800 dark:bg-orange-900/30 dark:text-orange-400;
+  }
+
+  .difficulty-expert {
+    @apply badge bg-red-100 text-red-800 dark:bg-red-900/30 dark:text-red-400;
   }
   
-  .puzzle-grid {
-    display: grid;
-    grid-template-columns: repeat(var(--grid-cols, 3), 1fr);
-    grid-gap: 0.5rem;
+  .loading-spinner {
+    @apply animate-spin h-5 w-5 text-white;
   }
 }
-
-/* Import toast styles */
-@import 'react-toastify/dist/ReactToastify.css';
