@@ -105,6 +105,9 @@ function App() {
               ].some((path) => currentPath.includes(path))
           )
             navigate(`/login?redirect=${redirectPath}`);
+            else{
+              navigate(currentPath);
+            }
           } else if (isAuthPage) {
             navigate(currentPath);
           } else {
