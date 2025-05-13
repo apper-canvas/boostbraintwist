@@ -96,8 +96,6 @@ function App() {
           } else if (redirectPath) {
            if (
               ![
-                  'forgot-password',
-                  'reset-password',
                   'error',
                   'signup',
                   'login',
