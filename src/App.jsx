@@ -173,10 +173,7 @@ function App() {
         pauseOnHover
         theme={darkMode ? "dark" : "light"}
       />
-    </div>
+    </AuthContext.Provider>
   );
 }
-
 export default App;
-        theme={authMethods.darkMode ? "dark" : "light"}
-    </AuthContext.Provider>
